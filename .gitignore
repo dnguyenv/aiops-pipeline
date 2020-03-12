@@ -1,0 +1,5 @@
+scripts/opendatahub-operator
+scripts/local.rc
+test
+thanos
+intro.txt
