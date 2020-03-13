@@ -12,6 +12,8 @@ export OCP_API_ENDPOINT=<your ocp api url>, eg: https://api.dunguyen-aiopstest.d
 Before running the installation script, make changes to `scripts/deploy/crds/aiops_odh_cr.yaml` accordingly to to enable/disable pipeline components as needed
 
 ```bash
+$ git clone https://github.com/dnguyenv/aiops-pipeline.git
+$ cd aiops-pipeline/scripts
 $ ./aiops-pipelone-provision.sh
 ```
 
