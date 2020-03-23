@@ -3,9 +3,13 @@
 
 # Prep steps
 
+# git clone https://github.com/open-cluster-management/aiops-pipeline
+
 # source ./local.rc
 
 oc login -u $OCP_ADMIN_USER -p $OCP_ADMIN_PASS --server $OCP_API_ENDPOINT
+
+# Setup the Storage components 
 
 oc apply -f deploy/storage/scc.yaml
 oc apply -f deploy/storage/operator.yaml
@@ -13,6 +17,8 @@ oc apply -f deploy/storage/operator.yaml
 # Check the initiation status
 
 oc get pods -n rook-ceph-system
+
+# Give it some time before running these commands
 
 oc apply -f deploy/storage/cluster.yaml
 oc apply -f deploy/storage/toolbox.yaml
@@ -28,7 +34,12 @@ oc expose service rook-ceph-rgw-my-store -l name=my-route --name=spiritedenginee
 
 oc new-project demo
 
+# Copy secret over to new namespace
+
 oc get secret -n rook-ceph rook-ceph-object-user-my-store-odh-user --export -o yaml | oc apply -n demo -f-
+
+
+# Create other pipeline components.
 
 oc apply -f deploy/crds/aiops_odh_crd.yaml -n demo
 

@@ -1,6 +1,10 @@
 # Build an AI/ML pipe line for your AIOps initiatives
 Scripts and code to provision AI and ML pipeline on OpenShift 4.x using Open Data Hub frame work
 
+## Architecture overview
+
+![Architecture overview](/images/arch.png)
+
 `script` folder contains scripts to install the open data hub operator. These environment variables need to be set before running the commands:
 
 ```bash
